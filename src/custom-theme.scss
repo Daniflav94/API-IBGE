@@ -1,0 +1,22 @@
+
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$churros-primary: mat.define-palette(mat.$deep-orange-palette, 300);
+$churros-warn: mat.define-palette(mat.$indigo-palette);
+$churros-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+
+
+$churros-theme: mat.define-light-theme((
+  color: (
+    primary: $churros-primary,
+    accent: $churros-accent,
+    warn: $churros-warn,
+  )
+));
+
+
+@include mat.all-component-themes($churros-theme);
+

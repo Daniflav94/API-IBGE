@@ -1,0 +1,53 @@
+<mat-toolbar color="primary" class="navbar">
+        <span>Pontos de Venda </span>   
+</mat-toolbar>
+<main class="container">
+    
+    <section class="conteudo">
+        <h3>Pontos de venda cadastrados</h3>
+        <ul>
+            <li *ngFor="let ponto of pontosDeVenda"><strong>{{ponto.nome}}:</strong> {{ponto.cidade}} / {{ponto.estado}} - {{ponto.pontoDeVenda}}, Horário funcionamento: {{ponto.horarioInicio}} até {{ponto.horarioFinal}} </li>
+        </ul>
+        <mat-divider></mat-divider>
+        <h3>Cadastre um novo ponto de venda</h3>
+        <form class="formulario" [formGroup]="form" (ngSubmit)="salvar()">
+            <mat-form-field appearance="fill">
+                <mat-label>Nome</mat-label>
+                <input matInput formControlName="nome">
+            </mat-form-field>
+            <div class="localizacao">
+                <mat-form-field appearance="fill">
+                    <mat-label>Estado</mat-label>
+                    <mat-select  formControlName="estado" >
+                        <mat-option [value]="estado.sigla"  (onSelectionChange)="listarCidades(estado.sigla)" *ngFor="let estado of listaEstados">{{estado.nome}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Cidade</mat-label>
+                    <mat-select  formControlName="cidade">
+                        <mat-option [value]="cidade.nome" *ngFor="let cidade of listaMunicipios">{{cidade.nome}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div> 
+            <mat-form-field appearance="fill">
+                <mat-label>Ponto de venda</mat-label>
+                <input matInput formControlName="pontoDeVenda">
+            </mat-form-field>
+            <div class="horarios">
+                <mat-form-field appearance="fill">
+                    <mat-label>Começa às</mat-label>
+                    <input matInput type="time" formControlName="horarioInicio">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Termina às</mat-label>
+                    <input matInput type="time" formControlName="horarioFinal">
+                </mat-form-field>
+            </div>
+            <button type="submit" mat-raised-button color="primary">Cadastrar</button>
+            
+        </form>
+    </section>
+    <img src="../../../assets/carrochurros.png" width="380px" class="img-fundo">
+    
+</main>
+
