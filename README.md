@@ -1,6 +1,6 @@
 ## Objetivo
 
-Página de cadastro de pontos de venda de churros, que coonsome a API do IBGE para listar os estados e cidades.
+Página de cadastro de pontos de venda de churros, que consome a API do IBGE para listar os estados e cidades.
 
 ## Tecnologias
 
